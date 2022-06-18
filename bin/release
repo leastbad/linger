@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+VERSION=$1
+
+printf "module Linger\n  VERSION = \"$VERSION\"\nend\n" > ./lib/linger/version.rb
+bundle
+git add Gemfile.lock lib/linger/version.rb
+git commit -m "Bump version for $VERSION"
+git push
+git tag v$VERSION
+git push --tags
+gem build linger.gemspec
+gem push "linger-$VERSION.gem" --host https://rubygems.org
+rm "linger-$VERSION.gem"
