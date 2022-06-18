@@ -1,7 +1,7 @@
 require_relative "lib/linger/version"
 
 Gem::Specification.new do |s|
-  s.name = "Linger"
+  s.name = "linger"
   s.version = Linger::VERSION
   s.authors = ["leastbad"]
   s.email = "hello@leastbad.com"
