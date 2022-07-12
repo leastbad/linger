@@ -3,7 +3,7 @@ module Linger::Authentication
 
   def authenticate_connection!
     identifier_exists = false
-    Linger.instrument :meta, message: "Verifing #{connection.connection_identifier}" do
+    Linger.instrument :meta, message: "Verifying #{connection.connection_identifier}" do
       identifier_exists = Linger.redis.exists?(connection.connection_identifier)
     end
     throw :forbidden unless identifier_exists
